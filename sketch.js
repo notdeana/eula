@@ -1,17 +1,26 @@
 // eula
+let button;
+let wrds;
 let eula = [{
-  name: "eula1",
-  color: "blue"
+  name: "g",
+  color: "over"
 }, {
-  name: "eula2",
-  color: "white"
+  name: "gg",
+  color: "overr"
 }, {
-  name: "eula3",
-  color: "black"
+  name: "ggg",
+  color: "overrr"
 }];
 
 let randomIndex;
 let animating = false;
+
+function preload(){
+  eula[0] = loadImage('gameover0.png')
+  eula[1] = loadImage('gameover1.png')
+  eula[2] = loadImage('gameover2.png')
+  
+}
 
 function setup() {
   createCanvas(400, 400);
@@ -21,7 +30,9 @@ function setup() {
   text("SEIZURE WARNING", 50, 50);
   setInterval(changeBackground, 3000);
 
-
+  var button = createButton('Don't click');
+    button.parent ('button-holder');
+    button.mousePressed(reset sketch);
 }
 
 
@@ -33,15 +44,17 @@ function draw() {
 }
 
 function changeBackground(){
+  
   background(random(255), random(255), random(255));
     setInterval(changeBackground, 3000);
 }
 function randomizer(){
+  
   animating = false;
    if (eula[0]){
       background(200,650,400);
  randomIndex = int(random(eula.length));
-text(`${eula[randomIndex].name}'s favorite color is
+text(`${eula[randomIndex].name}ame
 
 ${eula[randomIndex].color}`, 50, 50);
 
